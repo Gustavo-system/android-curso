@@ -21,8 +21,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RickAndMortyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innetPadding ->
-                    PersonajesScreen(modifier = Modifier.padding(innetPadding))
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    PersonajesScreen()
                 }
             }
         }
