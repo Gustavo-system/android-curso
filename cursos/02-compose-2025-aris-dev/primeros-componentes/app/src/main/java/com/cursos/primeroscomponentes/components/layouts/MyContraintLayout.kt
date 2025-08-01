@@ -14,11 +14,12 @@ import androidx.constraintlayout.compose.ConstraintLayout
 /**
  * Para importar ConstraintLayout es necesario agregar la libreria en el gradle.app
  */
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun MyConstraintLayout() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 
+        // crear estas referencias solos sirven dentro del "ConstraintLayout"
         val (boxRed, boxGray, boxGreen, boxMagenta, boxYellow) = createRefs()
 
         Box(
@@ -71,3 +72,67 @@ fun MyConstraintLayout() {
         )
     }
 }
+
+
+@Preview(showBackground = true)
+@Composable
+fun MyConstraintLayoutGuide() {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+        val (boxRed, boxBlue) = createRefs()
+
+        // creamos las guias, 0.1f es igual aun 10% 0.2f es un 20% etc...
+        val guideTop = createGuidelineFromTop(0.2f)
+        val guideBotton = createGuidelineFromBottom(0.3f)
+        val guideStartSecondComponent = createGuidelineFromStart(0.5f)
+
+        Box(
+            modifier = Modifier
+                .size(150.dp)
+                .background(Color.Red)
+                .constrainAs(boxRed) {
+                    // enlazamos a nuestra guia
+                    top.linkTo(guideTop)
+                    start.linkTo(parent.start)
+                    end.linkTo(guideStartSecondComponent)
+                }
+        )
+
+        Box(
+            modifier = Modifier
+                .size(150.dp)
+                .background(Color.Blue)
+                .constrainAs(boxBlue) {
+                    // enlazamos a nuestra guia
+                    start.linkTo(guideStartSecondComponent)
+                    bottom.linkTo(guideBotton)
+                }
+        )
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
