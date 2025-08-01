@@ -1,6 +1,5 @@
 package com.demos.rickandmorty.di
 
-import android.util.Log
 import com.demos.rickandmorty.api.ApiService
 import com.demos.rickandmorty.utils.Constants
 import dagger.Module
