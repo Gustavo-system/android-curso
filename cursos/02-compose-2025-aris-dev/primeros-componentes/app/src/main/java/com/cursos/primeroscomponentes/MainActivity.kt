@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.cursos.primeroscomponentes.components.states.MyDemoState
 import com.cursos.primeroscomponentes.ui.theme.PrimerosComponentesTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +21,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             PrimerosComponentesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    /*Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    )*/
+
+                    MyDemoState(Modifier.padding(innerPadding))
                 }
             }
         }
